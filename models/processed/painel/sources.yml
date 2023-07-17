@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: painel
+    database: "{{ target.project }}"
+    schema: "{{ target.dataset }}"
+
+    quoting:
+      database: true
+      schema: true
+      identifier: true
+
+    loader: carol
+    loaded_at_field: _ingestionDateTime
+
+    freshness:
+      warn_after: {count: 30, period: day}
+      error_after: {count: 90, period: day}
+
+    tables:
+      - name: painelmdbusinesspartner
+        columns:
+          - name: painel_businesspartner_id
+            description: The unique ID of an businesspartner.
+            tests:
+              - unique
+              - not_null
+
+
+      - name: painelarinvoice
+        columns:
+          - name: painel_invoice_id
+            description: The unique ID of an invoice.
+            tests:
+              - not_null
+          - name: painel_docissue
+          - name: painel_businesspartner_id
+          - name: painel_transactiontype
