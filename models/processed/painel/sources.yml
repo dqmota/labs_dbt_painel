@@ -35,4 +35,14 @@ sources:
               - not_null
           - name: painel_docissue
           - name: painel_businesspartner_id
+            tests:
+              - relationships:
+                  to: source('painel', 'painelmdbusinesspartner')
+                  field: painel_businesspartner_id
           - name: painel_transactiontype
+            tests:
+              - accepted_values:
+                  values: ['AT', 'NF']
+                  config:
+                    error_if: '> 100'
+
