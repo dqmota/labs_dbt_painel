@@ -1,7 +1,7 @@
 config-version: 2
 
 name: 'dbt_painel'
-version: '0.0.1'
+version: '0.0.2'
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'carol'
