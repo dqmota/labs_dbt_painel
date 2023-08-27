@@ -1,0 +1,14 @@
+version: 2
+
+exposures:
+
+  - name: app_painel
+    type: application
+
+    depends_on:
+      - source('painel', 'painelarinvoice')
+      - source('painel', 'painelmdbusinesspartner')
+
+    owner:
+      name: Techfin Team
+      email: a@a.com
